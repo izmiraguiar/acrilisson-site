@@ -1,295 +1,49 @@
-/* ========= Variáveis Globais (Custom Properties) ========= */
-:root {
-    --cor-primaria: #007bff; /* Um azul vibrante e profissional */
-    --cor-secundaria: #343a40; /* Cinza escuro para texto e elementos de destaque */
-    --cor-fundo: #f8f9fa;
-    --cor-cards: #ffffff;
-    --cor-texto: #212529;
-    --cor-texto-claro: #ffffff;
-    --cor-whatsapp: #25D366;
-    --cor-whatsapp-hover: #1DAE52;
-    --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --borda-raio: 8px;
-    --fonte-principal: 'Roboto', sans-serif;
-    --fonte-titulos: 'Montserrat', sans-serif;
-}
-
-/* ========= Reset Básico & Estilos Globais ========= */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--fonte-principal);
-    line-height: 1.7;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* ========= Tipografia ========= */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--fonte-titulos);
-    color: var(--cor-secundaria);
-    margin-bottom: 0.75em;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 2.2em;
-    text-align: center;
-    margin-bottom: 1em;
-}
-
-h3 { /* Estilo para H3 dos produtos */
-    font-size: 1.25em; /* Mantido da versão anterior, que parecia bom nos cards */
-    color: var(--cor-primaria);
-}
-
-p {
-    margin-bottom: 1.2em;
-    font-size: 1.05em;
-}
-
-a {
-    color: var(--cor-primaria);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #0056b3; /* Azul primário escurecido */
-}
-
-/* ========= Cabeçalho (Header) ========= */
-header {
-    background-color: var(--cor-cards);
-    padding: 1em 1.5em;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.topo {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 30px; /* Espaço entre o logo e o banner */
+    padding: 20px;
+    background-color: var(--cor-cards);
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 #logo {
-    max-width: 120px; /* Tamanho do logo ajustado */
-    max-height: 75px; /* Altura máxima para o logo */
-    margin-right: 15px;
-    margin-bottom: 0;
+    max-width: 250px; /* Aumenta o tamanho do logo */
+    max-height: 250px;
 }
 
-.header-text-container {
-    text-align: left;
-}
-
-header h1 {
-    font-size: 2.2em;
-    margin-bottom: 0.1em;
-    color: var(--cor-primaria);
-}
-
-header p { /* Subtítulo do header */
-    font-size: 1em;
-    color: var(--cor-secundaria);
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-/* ========= Seção Banner Principal ========= */
 #banner-principal {
-    width: 100%;
-    max-height: 450px; /* Você pode ajustar esta altura se o banner estiver muito alto */
+    max-width: 700px;
+    max-height: 350px;
     overflow: hidden;
     background-color: var(--cor-secundaria);
 }
 
 #banner-principal img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    height: auto;
+    object-fit: contain;
 }
 
-/* ========= Conteúdo Principal (Main) ========= */
-main {
-    flex-grow: 1;
-    width: 100%;
-}
-
-/* ========= Seções Genéricas (Sobre, Produtos, Contato) ========= */
-section {
-    padding: 50px 25px;
-    margin: 0 auto;
-    max-width: 1100px;
-}
-
-section#sobre, section#contato {
-    background-color: var(--cor-cards);
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-radius: var(--borda-raio);
-    box-shadow: var(--sombra-padrao);
-    padding: 40px;
-}
-
-section#sobre p, section#contato p {
-    text-align: center;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* ========= Galeria de Produtos ========= */
-.introducao-galeria, .veja-mais {
-    text-align: center;
-    font-size: 1.1em;
-    margin-bottom: 25px;
-    color: #555;
-}
-
-.galeria-produtos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Ajustado para cards menores e mais colunas */
-    gap: 25px; /* Espaçamento entre os cards */
-}
-
-.produto {
-    background-color: var(--cor-cards);
-    border-radius: var(--borda-raio);
-    padding: 0; /* Padding removido para imagem encostar no topo, se desejado */
-    text-align: center;
-    box-shadow: var(--sombra-padrao);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.produto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-}
-
-.produto img {
-    width: 100%;
-    height: 180px; /* Altura da imagem do produto reduzida */
-    object-fit: cover; /* ou 'contain' se preferir não cortar a imagem */
-    display: block;
-}
-
-.produto h3 { /* Estilo H3 específico para produtos */
-    margin-top: 15px;
-    margin-bottom: 8px;
-    /* font-size: 1.25em;  Já definido globalmente para H3, mas pode ser sobrescrito se necessário */
-}
-
-.produto p { /* Descrição do produto */
-    padding: 0 15px 15px 15px;
-    font-size: 0.9em;
-    color: #555;
-    flex-grow: 1; /* Ajuda a alinhar cards de alturas diferentes se o texto variar */
-    margin-bottom: 0;
-}
-
-
-/* ========= Botão do WhatsApp ========= */
-.whatsapp-button {
-    display: block;
-    width: fit-content;
-    max-width: 320px;
-    margin: 20px auto 0 auto;
-    background-color: var(--cor-whatsapp);
-    color: var(--cor-texto-claro) !important;
-    padding: 15px 30px;
-    border-radius: var(--borda-raio);
-    font-weight: bold;
-    font-size: 1.15em;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-}
-
-.whatsapp-button:hover {
-    background-color: var(--cor-whatsapp-hover);
-    color: var(--cor-texto-claro) !important;
-    transform: scale(1.03);
-}
-
-/* ========= Rodapé (Footer) ========= */
-footer {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-texto-claro);
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: auto;
-}
-
-/* ========= Responsividade ========= */
-@media (max-width: 992px) { /* Telas médias como tablets */
-    h2 { font-size: 2em; }
-    .galeria-produtos {
-        /* Mantém o minmax, mas o gap pode ser ajustado se necessário */
+@media (max-width: 768px) {
+    .topo {
+        flex-direction: column;
         gap: 20px;
     }
-}
-
-@media (max-width: 768px) { /* Tablets menores e celulares grandes em paisagem */
-    section { padding: 40px 20px; }
-    section#sobre, section#contato { padding: 30px; }
-    h2 { font-size: 1.8em; }
-    .produto img {
-        height: 170px; /* Altura da imagem do produto ligeiramente menor para tablets */
-    }
-}
-
-/* Bloco de responsividade específico para o header em telas pequenas */
-@media (max-width: 480px) { /* Celulares em retrato */
-    header {
-        padding: 0.8em 1em;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
+    
     #logo {
-        max-width: 100px; /* Logo um pouco menor em telas pequenas */
-        max-height: 65px;
-        margin-right: 0;
-        margin-bottom: 0.5em;
+        max-width: 180px;
+        max-height: 180px;
     }
 
-    .header-text-container {
-        text-align: center;
-    }
-
-    header h1 {
-        font-size: 1.8em;
-    }
-    header p {
-        font-size: 0.9em;
-    }
-
-    /* Outras regras gerais para 480px */
-    body { line-height: 1.6; }
-    #banner-principal { max-height: 250px; }
-    section { padding: 30px 15px; }
-    .galeria-produtos {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Cards ainda menores se necessário */
-        gap: 15px;
-    }
-    .produto img {
-        height: 160px; /* Altura da imagem do produto ainda menor para celulares */
-    }
-    .whatsapp-button {
-        padding: 12px 25px;
-        font-size: 1.05em;
-        width: 90%; /* Botão ocupa mais largura */
+    #banner-principal {
+        max-width: 100%;
     }
 }
