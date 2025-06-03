@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acrilisson - Peças em Acrílico</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <header>
+        <img src="caminho/para/seu/logo.png" alt="Logo Acrilisson" id="logo">
+        <h1>Acrilisson - Peças Criativas em Acrílico</h1>
+    </header>
+
+    <section id="sobre">
+        <h2>Sobre Nós</h2>
+        <p>Aqui você descreve a Acrilisson, seus valores, o que vocês fazem, etc.</p>
+    </section>
+
+    <section id="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="galeria-produtos">
+            <div class="produto">
+                <img src="caminho/para/imagem_produto1.jpg" alt="Nome do Produto 1">
+                <h3>Nome do Produto 1</h3>
+                <p>Breve descrição do produto 1. Dimensões, material, etc.</p>
+            </div>
+            <div class="produto">
+                <img src="caminho/para/imagem_produto2.jpg" alt="Nome do Produto 2">
+                <h3>Nome do Produto 2</h3>
+                <p>Breve descrição do produto 2.</p>
+            </div>
+            </div>
+        <p>Veja nosso catálogo completo e novidades no Instagram:
+            <a href="https://www.instagram.com/acrilisson_/" target="_blank">@acrilisson_</a>
+        </p>
+    </section>
+
+    <section id="contato">
+        <h2>Fale Conosco</h2>
+        <p>Clique no botão abaixo para tirar dúvidas ou fazer seu orçamento diretamente pelo WhatsApp!</p>
+        <a href="https://wa.me/55SEUNUMEROCOMDDD" class="whatsapp-button" target="_blank">
+            Falar no WhatsApp
+        </a>
+        </section>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Acrilisson. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
