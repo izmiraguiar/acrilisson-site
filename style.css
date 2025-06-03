@@ -49,11 +49,10 @@ h2 {
     margin-bottom: 1em;
 }
 
-h3 { /* Estilo para H3 dos produtos, pode ser ajustado */
-    font-size: 1.3em; /* Mantido o tamanho original, ajuste se necessário */
-    color: var(--cor-primaria); /* Cor primária para destaque */
+h3 { /* Estilo para H3 dos produtos */
+    font-size: 1.25em; /* Mantido da versão anterior, que parecia bom nos cards */
+    color: var(--cor-primaria);
 }
-
 
 p {
     margin-bottom: 1.2em;
@@ -70,46 +69,43 @@ a:hover {
     color: #0056b3; /* Azul primário escurecido */
 }
 
-/* ========= Cabeçalho (Header) - NOVAS REGRAS INTEGRADAS ========= */
+/* ========= Cabeçalho (Header) ========= */
 header {
     background-color: var(--cor-cards);
-    padding: 1em 1.5em; /* Ajuste o padding conforme necessário */
+    padding: 1em 1.5em;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    display: flex; /* ATIVA O FLEXBOX */
-    align-items: center; /* Alinha itens verticalmente ao centro */
+    display: flex;
+    align-items: center;
 }
 
 #logo {
-    max-width: 80px; /* Ou o tamanho que desejar para o logo. Ex: 70px, 90px */
-    /* max-height: 60px; /* Adicione se quiser controlar a altura também */
-    margin-right: 15px; /* Espaço entre o logo e o texto */
-    margin-bottom: 0; /* Remove a margem inferior que poderia existir do estilo anterior */
+    max-width: 120px; /* Tamanho do logo ajustado */
+    max-height: 75px; /* Altura máxima para o logo */
+    margin-right: 15px;
+    margin-bottom: 0;
 }
 
 .header-text-container {
-    /* Este container agora segura o H1 e o P.
-       Ele vai se posicionar à direita do logo. */
-    /* Se quiser que o texto "Acrilisson" e "Peças Criativas..." fiquem alinhados à esquerda dentro deste container: */
     text-align: left;
 }
 
 header h1 {
-    font-size: 2.2em; /* Ajuste conforme necessário */
-    margin-bottom: 0.1em; /* Ou ajuste para espaçamento desejado entre H1 e P */
+    font-size: 2.2em;
+    margin-bottom: 0.1em;
     color: var(--cor-primaria);
 }
 
 header p { /* Subtítulo do header */
-    font-size: 1em; /* Ajuste conforme necessário */
+    font-size: 1em;
     color: var(--cor-secundaria);
     margin-bottom: 0;
-    margin-top: 0; /* Garante que não há margem extra */
+    margin-top: 0;
 }
 
 /* ========= Seção Banner Principal ========= */
 #banner-principal {
     width: 100%;
-    max-height: 450px;
+    max-height: 450px; /* Você pode ajustar esta altura se o banner estiver muito alto */
     overflow: hidden;
     background-color: var(--cor-secundaria);
 }
@@ -151,4 +147,149 @@ section#sobre p, section#contato p {
 }
 
 /* ========= Galeria de Produtos ========= */
-.introducao-galeria
+.introducao-galeria, .veja-mais {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.galeria-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Ajustado para cards menores e mais colunas */
+    gap: 25px; /* Espaçamento entre os cards */
+}
+
+.produto {
+    background-color: var(--cor-cards);
+    border-radius: var(--borda-raio);
+    padding: 0; /* Padding removido para imagem encostar no topo, se desejado */
+    text-align: center;
+    box-shadow: var(--sombra-padrao);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.produto img {
+    width: 100%;
+    height: 180px; /* Altura da imagem do produto reduzida */
+    object-fit: cover; /* ou 'contain' se preferir não cortar a imagem */
+    display: block;
+}
+
+.produto h3 { /* Estilo H3 específico para produtos */
+    margin-top: 15px;
+    margin-bottom: 8px;
+    /* font-size: 1.25em;  Já definido globalmente para H3, mas pode ser sobrescrito se necessário */
+}
+
+.produto p { /* Descrição do produto */
+    padding: 0 15px 15px 15px;
+    font-size: 0.9em;
+    color: #555;
+    flex-grow: 1; /* Ajuda a alinhar cards de alturas diferentes se o texto variar */
+    margin-bottom: 0;
+}
+
+
+/* ========= Botão do WhatsApp ========= */
+.whatsapp-button {
+    display: block;
+    width: fit-content;
+    max-width: 320px;
+    margin: 20px auto 0 auto;
+    background-color: var(--cor-whatsapp);
+    color: var(--cor-texto-claro) !important;
+    padding: 15px 30px;
+    border-radius: var(--borda-raio);
+    font-weight: bold;
+    font-size: 1.15em;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-button:hover {
+    background-color: var(--cor-whatsapp-hover);
+    color: var(--cor-texto-claro) !important;
+    transform: scale(1.03);
+}
+
+/* ========= Rodapé (Footer) ========= */
+footer {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto;
+}
+
+/* ========= Responsividade ========= */
+@media (max-width: 992px) { /* Telas médias como tablets */
+    h2 { font-size: 2em; }
+    .galeria-produtos {
+        /* Mantém o minmax, mas o gap pode ser ajustado se necessário */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets menores e celulares grandes em paisagem */
+    section { padding: 40px 20px; }
+    section#sobre, section#contato { padding: 30px; }
+    h2 { font-size: 1.8em; }
+    .produto img {
+        height: 170px; /* Altura da imagem do produto ligeiramente menor para tablets */
+    }
+}
+
+/* Bloco de responsividade específico para o header em telas pequenas */
+@media (max-width: 480px) { /* Celulares em retrato */
+    header {
+        padding: 0.8em 1em;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #logo {
+        max-width: 100px; /* Logo um pouco menor em telas pequenas */
+        max-height: 65px;
+        margin-right: 0;
+        margin-bottom: 0.5em;
+    }
+
+    .header-text-container {
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+    header p {
+        font-size: 0.9em;
+    }
+
+    /* Outras regras gerais para 480px */
+    body { line-height: 1.6; }
+    #banner-principal { max-height: 250px; }
+    section { padding: 30px 15px; }
+    .galeria-produtos {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Cards ainda menores se necessário */
+        gap: 15px;
+    }
+    .produto img {
+        height: 160px; /* Altura da imagem do produto ainda menor para celulares */
+    }
+    .whatsapp-button {
+        padding: 12px 25px;
+        font-size: 1.05em;
+        width: 90%; /* Botão ocupa mais largura */
+    }
+}
