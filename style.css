@@ -1,8 +1,79 @@
+/* ========= Variáveis Globais ========= */
+:root {
+    --cor-primaria: #007bff;
+    --cor-secundaria: #343a40;
+    --cor-fundo: #f8f9fa;
+    --cor-cards: #ffffff;
+    --cor-texto: #212529;
+    --cor-texto-claro: #ffffff;
+    --cor-whatsapp: #25D366;
+    --cor-whatsapp-hover: #1DAE52;
+    --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --borda-raio: 8px;
+    --fonte-principal: 'Roboto', sans-serif;
+    --fonte-titulos: 'Montserrat', sans-serif;
+}
+
+/* ========= Reset Básico ========= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    line-height: 1.7;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-secundaria);
+    margin-bottom: 0.75em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+h3 {
+    font-size: 1.25em;
+    color: var(--cor-primaria);
+}
+
+p {
+    margin-bottom: 1.2em;
+    font-size: 1.05em;
+}
+
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* ========= Layout Logo + Banner ========= */
 .topo {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px; /* Espaço entre o logo e o banner */
+    gap: 30px;
     padding: 20px;
     background-color: var(--cor-cards);
 }
@@ -15,7 +86,7 @@
 }
 
 #logo {
-    max-width: 250px; /* Aumenta o tamanho do logo */
+    max-width: 250px;
     max-height: 250px;
 }
 
@@ -32,18 +103,114 @@
     object-fit: contain;
 }
 
-@media (max-width: 768px) {
-    .topo {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    #logo {
-        max-width: 180px;
-        max-height: 180px;
-    }
-
-    #banner-principal {
-        max-width: 100%;
-    }
+/* ========= Conteúdo Principal ========= */
+main {
+    flex-grow: 1;
+    width: 100%;
 }
+
+section {
+    padding: 50px 25px;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+section#sobre, section#contato {
+    background-color: var(--cor-cards);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: var(--borda-raio);
+    box-shadow: var(--sombra-padrao);
+    padding: 40px;
+}
+
+section#sobre p, section#contato p {
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========= Galeria de Produtos ========= */
+.introducao-galeria, .veja-mais {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.galeria-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.produto {
+    background-color: var(--cor-cards);
+    border-radius: var(--borda-raio);
+    padding: 0;
+    text-align: center;
+    box-shadow: var(--sombra-padrao);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.produto img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.produto h3 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.produto p {
+    padding: 0 15px 15px 15px;
+    font-size: 0.9em;
+    color: #555;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+/* ========= Botão do WhatsApp ========= */
+.whatsapp-button {
+    display: block;
+    width: fit-content;
+    max-width: 320px;
+    margin: 20px auto 0 auto;
+    background-color: var(--cor-whatsapp);
+    color: var(--cor-texto-claro) !important;
+    padding: 15px 30px;
+    border-radius: var(--borda-raio);
+    font-weight: bold;
+    font-size: 1.15em;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-button:hover {
+    background-color: var(--cor-whatsapp-hover);
+    transform: scale(1.03);
+}
+
+/* ========= Rodapé ========= */
+footer {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto;
+}
+
+/* ========= Responsivida*
